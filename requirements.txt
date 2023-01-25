@@ -2,4 +2,8 @@ pandas==1.5.2
 scikit_learn==1.2.0
 streamlit==1.16.0
 streamlit_extras==0.2.4
+<<<<<<< HEAD
 plotly==5.13.0
+=======
+plotly==5.13.0
+>>>>>>> 247e82823d9e8e5d3552ecdb963146fb506e7a58
