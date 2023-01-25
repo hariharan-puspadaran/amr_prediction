@@ -13,6 +13,7 @@ if st.session_state['model_type']=="":
     st.markdown("Please select a microbe type from the main page")
 else:
     st.header(st.session_state['model_type'])
+    st.markdown("Prediction results")
 
 if st.session_state['data'].empty:
     st.markdown("Please upload a dataset from the main page")
@@ -54,7 +55,7 @@ else:
         x_val = st.session_state['data'].replace(['-'],'0').replace(['+'],'1')
         x_val = x_val.iloc[:,1:16].values
         x_test = x_val.astype('int')
-
+        columns = ['IMIPENEM','MEROPENEM','DORIPENEM']
 
         #IMIPENEM
         loaded_model = pickle.load(open('CRO_IMIPENEM.sav', 'rb'))
@@ -78,7 +79,7 @@ else:
         x_val = st.session_state['data'].replace(['-'],'0').replace(['+'],'1')
         x_val = x_val.iloc[:,1:4].values
         x_test = x_val.astype('int')
-
+        columns = ['IMIPENEM','MEROPENEM','DORIPENEM']
 
         #IMIPENEM
         loaded_model = pickle.load(open('CRPA_IMIPENEM.sav', 'rb'))
@@ -100,9 +101,11 @@ else:
 
     tab1, tab2 = st.tabs(["Table", "Graph"])
     with tab1: 
+        tab1.subheader("Tabulated Output")
         tab1.dataframe(x_final)
         
     with tab2:
+        tab2.subheader("Bar Chart of Output")
         visual_output = pd.DataFrame (columns, columns = ['Antimicrobial'])
         
         out_results = np.arange(len(columns) * 3).reshape(3, len(columns))

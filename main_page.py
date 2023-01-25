@@ -90,16 +90,3 @@ if uploaded_file is not None:
     else:
         st.markdown("Invalid File. Please make sure the corect template file was used to record the data")
 
-# if 'data' not in st.session_state:
-#     st.session_state['data'] = pd.DataFrame()
-# if checker:
-#     submit = st.button("Submit")
-#     if submit:
-#         st.session_state['data'] = new_df
-#         switch_page("results")
-
-    
-# st.caption("this is the caption")
-# st.code("x=2021")
-# st.latex(r''' a+a r^1+a r^2+a r^3 ''')
-
