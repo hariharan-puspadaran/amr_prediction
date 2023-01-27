@@ -14,7 +14,7 @@ option =""
 option = st.selectbox('Microbe Species: ',('Klebsiella pneumoniae', 'Acinetobacter baumannii', 'Pseudomonas aeruginosa')) 
 st.header(option)
 with st.container():
-    st.markdown("Please use the csv file below as a baseline structure to tabulate your data. The columnns represent the list of genes to be tested in this species.")
+    st.markdown("Please use the csv file below as a baseline structure to tabulate your data. The columns represent the list of genes to be tested in this species.")
     template_name = str(option)+" - Template.csv"
     df = pd.read_csv(template_name)
     template_csv = df.to_csv(index=False).encode('utf-8')
@@ -88,5 +88,5 @@ if uploaded_file is not None:
                 st.session_state['model_type'] = option
                 switch_page("results")
     else:
-        st.markdown("Invalid File. Please make sure the corect template file was used to record the data")
+        st.markdown("Invalid File. Please make sure the correct template file was used to record the data")
 
