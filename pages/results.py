@@ -117,12 +117,12 @@ else:
                     current = 0     
                 out_results[j][i] = current
                 
-        visual_output['Susceptible'] = out_results[0].astype(int)
+        visual_output['Susceptible'] = out_results[2].astype(int)
         visual_output['Intermediate'] = out_results[1].astype(int)
-        visual_output['Resistant'] = out_results[2].astype(int)
+        visual_output['Resistant'] = out_results[0].astype(int)
         
         
-        fig = px.bar(visual_output, x = 'Antimicrobial', y=['Susceptible','Intermediate','Resistant'])
+        fig = px.bar(visual_output, x = 'Antimicrobial', y=['Resistant','Intermediate','Susceptible'])
         tab2.plotly_chart(fig, theme="streamlit", use_conatiner_width=True)
 
     result_csv = x_final.to_csv(index=False).encode('utf-8')   
